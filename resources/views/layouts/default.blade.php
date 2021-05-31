@@ -6,7 +6,17 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    @include('layouts._header')
+     
+     <div class="container">
+       <div class="offset-md-1 col-md-10">
+       @yield('content')
+       @include('layouts._footer')
+      </div>
+    </div>
+  </body>
+</html>
+    <!--nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
         <a class="navbar-brand" href="/">Weibo App</a>
         <ul class="navbar-nav justify-content-end">
@@ -20,4 +30,4 @@
       @yield('content')
     </div>
   </body>
-</html>
+</html-->
