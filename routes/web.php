@@ -8,6 +8,9 @@ Route::get('signup', 'UserController@create')->name('signup');
 // Route::get("/users","UserController@users");
 Route::resource('users','UserController');
 //use Illuminate\Support\Facades\Route;
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
 /*
 |--------------------------------------------------------------------------
