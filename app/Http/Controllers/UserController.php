@@ -18,6 +18,13 @@ class UserController extends Controller
             'except' => ['show', 'create', 'store']
         ]);
     }
+    public function index()
+    {
+        $users = User::paginate(6);
+        return view('users.index', compact('users'));
+    }
+
+
     public function update(User $user, Request $request)
     {
         $this->authorize('update', $user);
