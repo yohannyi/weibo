@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,10 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        Model::unguard();
-
+        Models::unguard();
         $this->call(UsersTableSeeder::class);
+        Models::reguard();
 
-        Model::reguard();
     }
 }

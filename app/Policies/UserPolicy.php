@@ -2,12 +2,13 @@
 
 namespace App\Policies;
 
-use App\Models\User;
+
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Models\User;
 
 class UserPolicy
 {
-    use HandlesAuthorization;
+    //use HandlesAuthorization;
 
     use HandlesAuthorization;
 
@@ -21,8 +22,8 @@ class UserPolicy
      *
      * @return void
      */
-    public function __construct()
+    public function destroy(User $currentUser, User $user)
     {
-        //
+        return $currentUser->is_admin && $currentUser->id !== $user->id;
     }
 }
