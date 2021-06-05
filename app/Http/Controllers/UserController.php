@@ -14,6 +14,13 @@ class UserController extends Controller
             'except' => ['show', 'create', 'store', 'index']
         ]);
     }
+    public function destroy(User $user)
+    {
+        $this->authorize('destroy', $user);
+        $user->delete();
+        session()->flash('success', '成功删除用户！');
+        return back();
+    }  
     public function index()
     {
         $users = User::paginate(6);
@@ -72,6 +79,7 @@ class UserController extends Controller
         session()->flash('success', '欢迎，您将在这里开启一段新的旅程~');
 
         return redirect()->route('users.show', [$user]);
-    }    
+    }  
+    
     
 }
